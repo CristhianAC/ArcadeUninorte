@@ -71,5 +71,6 @@ public class PlayerController : MonoBehaviour
     {
        
         anim.SetTrigger("die");
+        Destroy(this);
     }
 }
