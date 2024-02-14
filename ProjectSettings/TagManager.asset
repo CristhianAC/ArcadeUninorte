@@ -8,6 +8,8 @@ TagManager:
   - Damage
   - water
   - fall
+  - Enemy
+  - trampoline
   layers:
   - Default
   - TransparentFX
@@ -59,6 +61,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1492366579
+    locked: 0
+  - name: Enemy
+    uniqueID: 2891589651
     locked: 0
   - name: Water
     uniqueID: 2931828163

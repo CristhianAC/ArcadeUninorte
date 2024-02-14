@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private bool facingRight = true;
     private bool isGrounded;
     private Animator anim;
+    public Animator animTrampoline;
     private Vector2 moveX;
     public TextMeshProUGUI WinText;
     [SerializeField]private GameController gameController;
@@ -117,9 +119,26 @@ public class PlayerController : MonoBehaviour
         }
         if(collision.gameObject.tag == "fall")
         {
+             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Die();
+            gameController.removeTime(10);
+            spriteRenderer.color = Color.red;
+            Time.timeScale = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        
+        if (collision.gameObject.tag == "trampoline")
+        {
+            Jump(jumpForce * 2f);
+            animTrampoline.Play("jumpTrampoline");
+        }
+
+    }
+    private void Jump(float force)
+    {
+        rb.velocity = Vector2.up * force;
     }
 
 }
