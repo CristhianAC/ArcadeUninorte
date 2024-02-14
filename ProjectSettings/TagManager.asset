@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Heal
+  - Damage
+  - water
+  - fall
   layers:
   - Default
   - TransparentFX
@@ -40,4 +44,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Back
+    uniqueID: 1937286259
+    locked: 0
+  - name: recuperation
+    uniqueID: 3751489443
+    locked: 0
+  - name: Floor
+    uniqueID: 57071943
+    locked: 0
+  - name: fire
+    uniqueID: 3087375267
+    locked: 0
+  - name: Player
+    uniqueID: 1492366579
+    locked: 0
+  - name: Water
+    uniqueID: 2931828163
     locked: 0

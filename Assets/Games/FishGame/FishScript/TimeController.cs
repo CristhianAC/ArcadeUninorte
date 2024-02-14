@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class TimeController : MonoBehaviour
 {
-    [SerializeField] int min, sec;
+    public int min, sec;
     [SerializeField] TextMeshProUGUI timeText;
     public PlayerController playerController;
-    private float timeLeft;
+    public float timeLeft;
    
     
     private void Awake()
@@ -21,7 +21,7 @@ public class TimeController : MonoBehaviour
     void Update()
     {
         
-            timeLeft -= Time.deltaTime;
+        timeLeft -= Time.deltaTime;
         int tempMin = Mathf.FloorToInt(timeLeft / 60);
         int tempSec = Mathf.FloorToInt(timeLeft % 60);
         timeText.text = string.Format("{0:00}:{1:00}", tempMin, tempSec);
@@ -29,10 +29,14 @@ public class TimeController : MonoBehaviour
             {
                 
                 playerController.Die();
-            Destroy(this);
             timeText.text = "00:00";
-
+            Time.timeScale = 0;
+            
+            Destroy(this);
+            
+           
         }
             
     }
+    
 }
