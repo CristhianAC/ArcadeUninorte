@@ -10,7 +10,6 @@ public class TimeController : MonoBehaviour
     public PlayerController playerController;
     public float timeLeft;
    
-    
     private void Awake()
     {
         timeLeft = (min * 60) + sec;

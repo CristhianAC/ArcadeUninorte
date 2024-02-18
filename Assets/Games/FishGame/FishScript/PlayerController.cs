@@ -21,8 +21,9 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     public Animator animTrampoline;
     private Vector2 moveX;
-    public TextMeshProUGUI WinText;
+    public GameObject WinText;
     [SerializeField]private GameController gameController;
+    public GameObject Cristal;
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -82,7 +83,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Heal")
         {
             gameController.addTime(10);
-            Destroy(collision.gameObject);
+            
+            spriteRenderer.color = Color.blue;
         }
         if (collision.gameObject.tag == "Damage")
         {
@@ -109,13 +111,20 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.color = Color.white;
             
         }
+        if (collision.gameObject.tag == "Heal")
+        {
+            spriteRenderer.color = Color.white;
+            Destroy(collision.gameObject);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "water")
         {
             anim.Play("SwimFish");
-            WinText.gameObject.SetActive(true);
+            WinText.SetActive(true); 
+            Cristal.SetActive(true);
+            gameController.timeController.gameObject.SetActive(false);
         }
         if(collision.gameObject.tag == "fall")
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private TimeController timeController;
+    [SerializeField] public TimeController timeController;
     
     void Start()
     {
